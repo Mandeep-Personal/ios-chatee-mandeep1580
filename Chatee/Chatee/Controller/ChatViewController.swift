@@ -1,6 +1,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ChatViewController: UIViewController{
   
@@ -18,8 +19,13 @@ class ChatViewController: UIViewController{
   
   @IBAction func sendButtonTapped(_ sender: UIButton) {
     guard let messageText = messageField.text else {return}
-    let messageDB: DatabaseReference = Database.database().reference()
-    messageDB.childByAutoId().setValue(messageText) { (error, _) in
+    let messageDB: DatabaseReference = Database.database().reference().child("Messages")
+    let messageDict = [
+      "sender": Auth.auth().currentUser?.email,
+      "MessageBody": messageText
+    
+    ]
+    messageDB.childByAutoId().setValue(messageDict) { (error, _) in
       if let err = error {
         print("Error adding message to Firebase: \(err)")
       } else {
