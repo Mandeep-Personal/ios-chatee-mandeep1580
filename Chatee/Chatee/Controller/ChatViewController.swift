@@ -5,7 +5,7 @@ import FirebaseAuth
 
 class ChatViewController: UIViewController{
   
-  var messages : [String] = []
+  var messages : [Message] = []
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var messageField: UITextField!
   
@@ -13,6 +13,8 @@ class ChatViewController: UIViewController{
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "chatCell")
+    getMessages()
     
     // Do any additional setup after loading the view.
   }
@@ -21,7 +23,7 @@ class ChatViewController: UIViewController{
     guard let messageText = messageField.text else {return}
     let messageDB: DatabaseReference = Database.database().reference().child("Messages")
     let messageDict = [
-      "sender": Auth.auth().currentUser?.email,
+      "Sender": Auth.auth().currentUser?.email,
       "MessageBody": messageText
     
     ]
@@ -34,20 +36,33 @@ class ChatViewController: UIViewController{
       }
     }
   }
+  
+  func getMessages(){
+    let messageDB: DatabaseReference = Database.database().reference().child("Messages")
+    messageDB.observe(.childAdded) { (snapshot) in
+      if let value = snapshot.value as? Dictionary<String, String>,
+         let sender = value["Sender"],
+         let messageBody = value["MessageBody"] {
+        let message = Message(sender: sender, messageBody: messageBody)
+        self.messages.append(message)
+        self.tableView.reloadData()
+      }
+    }
+  }
 }
 
 extension ChatViewController: UITableViewDelegate,
                               UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //    return messages.count
-    return 5
+    return messages.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell")
-    // cell.stuff = messages [indexPath.row].thing
-    cell?.textLabel?.text = "Hellow"
-    return cell!
+    let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as! MessageCell
+    let message = messages[indexPath.row]
+    cell.senderLabel.text = message.sender
+    cell.messageBodyLabel.text = message.messageBody
+    return cell
   }
   
 }

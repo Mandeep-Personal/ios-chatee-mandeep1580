@@ -9,7 +9,13 @@ import UIKit
 
 class MessageCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var messageBodyBackground: UIView!
+  @IBOutlet weak var senderImageView: UIImageView!
+  @IBOutlet weak var senderLabel: UILabel!
+  @IBOutlet weak var messageBodyLabel: UILabel!
+  
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -19,5 +25,5 @@ class MessageCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

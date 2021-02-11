@@ -10,7 +10,7 @@ class LoginViewController: UIViewController {
     //register user thru firebase
         guard let email = emailTextField.text, let password = passwordTextField.text
         else {return}
-        Auth.auth().signIn(withEmail: "mandeep@gmail.com", password: "password") { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
           if let err = error {
             print("Error creating firebase user \(err)")
           } else {

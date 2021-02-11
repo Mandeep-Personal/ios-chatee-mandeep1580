@@ -11,9 +11,9 @@
 		7F11058225D4A89A00B8ED71 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F11058125D4A89A00B8ED71 /* RegisterViewController.swift */; };
 		7F7BC54725D4D35300B14BA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC54625D4D35300B14BA4 /* LoginViewController.swift */; };
 		7F7BC55A25D4DE7F00B14BA4 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC55925D4DE7F00B14BA4 /* ChatViewController.swift */; };
-		7F7BC59325D5A99100B14BA4 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC59125D5A99100B14BA4 /* MessageCell.swift */; };
-		7F7BC59425D5A99100B14BA4 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7BC59225D5A99100B14BA4 /* MessageCell.xib */; };
 		7F7BC59825D5B11D00B14BA4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC59725D5B11D00B14BA4 /* Message.swift */; };
+		7F7BC5CD25D5D6AD00B14BA4 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BC5CB25D5D6AD00B14BA4 /* MessageCell.swift */; };
+		7F7BC5CE25D5D6AD00B14BA4 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F7BC5CC25D5D6AD00B14BA4 /* MessageCell.xib */; };
 		7FDAF4F425D48B9700E838E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF4F325D48B9700E838E5 /* AppDelegate.swift */; };
 		7FDAF4F625D48B9700E838E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF4F525D48B9700E838E5 /* SceneDelegate.swift */; };
 		7FDAF4F825D48B9700E838E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF4F725D48B9700E838E5 /* ViewController.swift */; };
@@ -29,9 +29,9 @@
 		7F11058125D4A89A00B8ED71 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7F7BC54625D4D35300B14BA4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7F7BC55925D4DE7F00B14BA4 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		7F7BC59125D5A99100B14BA4 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		7F7BC59225D5A99100B14BA4 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		7F7BC59725D5B11D00B14BA4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		7F7BC5CB25D5D6AD00B14BA4 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		7F7BC5CC25D5D6AD00B14BA4 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		7FDAF4F025D48B9700E838E5 /* Chatee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chatee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FDAF4F325D48B9700E838E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FDAF4F525D48B9700E838E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +89,8 @@
 			children = (
 				7FDAF4FE25D48B9800E838E5 /* LaunchScreen.storyboard */,
 				7FDAF4F925D48B9700E838E5 /* Main.storyboard */,
-				7F7BC59125D5A99100B14BA4 /* MessageCell.swift */,
-				7F7BC59225D5A99100B14BA4 /* MessageCell.xib */,
+				7F7BC5CB25D5D6AD00B14BA4 /* MessageCell.swift */,
+				7F7BC5CC25D5D6AD00B14BA4 /* MessageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F7BC59425D5A99100B14BA4 /* MessageCell.xib in Resources */,
+				7F7BC5CE25D5D6AD00B14BA4 /* MessageCell.xib in Resources */,
 				7FDAF50025D48B9800E838E5 /* LaunchScreen.storyboard in Resources */,
 				7F11057E25D4A67400B8ED71 /* GoogleService-Info.plist in Resources */,
 				7FDAF4FD25D48B9800E838E5 /* Assets.xcassets in Resources */,
@@ -253,13 +253,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDAF4F825D48B9700E838E5 /* ViewController.swift in Sources */,
+				7F7BC5CD25D5D6AD00B14BA4 /* MessageCell.swift in Sources */,
 				7FDAF4F425D48B9700E838E5 /* AppDelegate.swift in Sources */,
 				7FDAF4F625D48B9700E838E5 /* SceneDelegate.swift in Sources */,
 				7F7BC54725D4D35300B14BA4 /* LoginViewController.swift in Sources */,
 				7F7BC55A25D4DE7F00B14BA4 /* ChatViewController.swift in Sources */,
 				7F7BC59825D5B11D00B14BA4 /* Message.swift in Sources */,
 				7F11058225D4A89A00B8ED71 /* RegisterViewController.swift in Sources */,
-				7F7BC59325D5A99100B14BA4 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
