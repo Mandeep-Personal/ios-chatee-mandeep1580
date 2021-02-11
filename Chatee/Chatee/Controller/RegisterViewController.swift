@@ -13,7 +13,8 @@ class RegisterViewController: UIViewController {
       if let err = error {
         print("Error creating firebase user \(err)")
       } else {
-        print {"Successfuly created user \(String(describing: user))"}
+        print ("Successfuly created user \(String(describing: user))")
+        self.performSegue(withIdentifier: "showChatView", sender: self)
       }
     }
   }

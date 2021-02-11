@@ -10,11 +10,12 @@ class LoginViewController: UIViewController {
     //register user thru firebase
         guard let email = emailTextField.text, let password = passwordTextField.text
         else {return}
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: "mandeep@gmail.com", password: "password") { (user, error) in
           if let err = error {
             print("Error creating firebase user \(err)")
           } else {
-            print {"Successfuly created user \(String(describing: user))"}
+            print ("Successfuly created user \(String(describing: user))")
+            self.performSegue(withIdentifier: "showChatView", sender: self)
           }
         }
   }
@@ -26,15 +27,4 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
