@@ -8,15 +8,21 @@ class ChatViewController: UIViewController{
   var messages : [Message] = []
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var messageField: UITextField!
+  @IBOutlet weak var heightConstraint: NSLayoutConstraint!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    messageField.delegate = self
+    
     tableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "chatCell")
+    
     getMessages()
     
-    // Do any additional setup after loading the view.
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+    
+    tableView.addGestureRecognizer(tapGesture)
   }
   
   @IBAction func sendButtonTapped(_ sender: UIButton) {
@@ -25,7 +31,7 @@ class ChatViewController: UIViewController{
     let messageDict = [
       "Sender": Auth.auth().currentUser?.email,
       "MessageBody": messageText
-    
+      
     ]
     messageDB.childByAutoId().setValue(messageDict) { (error, _) in
       if let err = error {
@@ -46,8 +52,19 @@ class ChatViewController: UIViewController{
         let message = Message(sender: sender, messageBody: messageBody)
         self.messages.append(message)
         self.tableView.reloadData()
+        self.scrollToBottom()
       }
     }
+  }
+  
+  func scrollToBottom(){
+    guard tableView.numberOfRows(inSection: 0) > 0 else {return}
+    let indexPath = IndexPath(row: messages.count-1, section: 0)
+    tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+  }
+  
+  @objc func tableViewTapped(){
+    messageField.endEditing(true)
   }
 }
 
@@ -62,7 +79,34 @@ extension ChatViewController: UITableViewDelegate,
     let message = messages[indexPath.row]
     cell.senderLabel.text = message.sender
     cell.messageBodyLabel.text = message.messageBody
+    if let email = Auth.auth().currentUser?.email, email == message.sender{
+      
+      cell.messageBodyBackground.backgroundColor = UIColor.green
+      cell.senderImageView.image = UIImage(named: "stars")
+    } else {
+      cell.messageBodyBackground.backgroundColor = UIColor.orange
+      cell.senderImageView.image = UIImage(named: "smile")
+    }
     return cell
   }
   
 }
+
+extension ChatViewController: UITextFieldDelegate{
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    UIView.animate(withDuration: 0.5) {
+      self.heightConstraint.constant = 360
+      self.view.layoutIfNeeded()
+      self.scrollToBottom()
+    }
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    UIView.animate(withDuration: 0.5) {
+      self.heightConstraint.constant = 150
+      self.view.layoutIfNeeded()
+      self.scrollToBottom()
+    }
+  }
+}
+

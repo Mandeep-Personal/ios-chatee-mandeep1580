@@ -124,11 +124,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZX-PN9">
+                                <rect key="frame" x="0.0" y="92" width="414" height="650"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="650" id="Ajc-Tk-avF"/>
+                                    <constraint firstAttribute="height" constant="650" id="d0t-vS-6aF"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="VI0-z5-cIr" customClass="MessageCell" customModule="Chatee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VI0-z5-cIr" id="tdO-0a-tJe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-CX-eQC">
-                                <rect key="frame" x="0.0" y="718" width="414" height="160"/>
+                                <rect key="frame" x="0.0" y="750" width="414" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQt-aa-sXF">
-                                        <rect key="frame" x="318" y="62" width="77" height="36"/>
+                                        <rect key="frame" x="310" y="57" width="77" height="36"/>
                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="77" id="KxM-Ia-lcc"/>
@@ -142,7 +160,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZMA-Kc-8E3">
-                                        <rect key="frame" x="2" y="63" width="300" height="34"/>
+                                        <rect key="frame" x="0.0" y="59" width="300" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="pE7-BD-H8o"/>
                                         </constraints>
@@ -152,46 +170,33 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="oQt-aa-sXF" secondAttribute="trailing" constant="19" id="H9l-0g-cfI"/>
-                                    <constraint firstItem="oQt-aa-sXF" firstAttribute="top" secondItem="AZt-CX-eQC" secondAttribute="top" constant="62" id="LQv-oQ-WmQ"/>
-                                    <constraint firstItem="ZMA-Kc-8E3" firstAttribute="leading" secondItem="AZt-CX-eQC" secondAttribute="leading" constant="2" id="Ofz-cT-cbC"/>
-                                    <constraint firstAttribute="bottom" secondItem="oQt-aa-sXF" secondAttribute="bottom" constant="62" id="PVl-Wd-d1g"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZMA-Kc-8E3" secondAttribute="bottom" constant="63" id="R1s-GM-m9T"/>
-                                    <constraint firstItem="ZMA-Kc-8E3" firstAttribute="top" secondItem="AZt-CX-eQC" secondAttribute="top" constant="63" id="a6g-1n-V4c"/>
-                                    <constraint firstItem="oQt-aa-sXF" firstAttribute="leading" secondItem="ZMA-Kc-8E3" secondAttribute="trailing" constant="16" id="glE-SZ-c9i"/>
+                                    <constraint firstItem="oQt-aa-sXF" firstAttribute="top" secondItem="AZt-CX-eQC" secondAttribute="top" constant="57" id="Axa-qD-Ebt"/>
+                                    <constraint firstItem="oQt-aa-sXF" firstAttribute="leading" secondItem="ZMA-Kc-8E3" secondAttribute="trailing" constant="10" id="H29-P5-o3W"/>
+                                    <constraint firstItem="ZMA-Kc-8E3" firstAttribute="leading" secondItem="AZt-CX-eQC" secondAttribute="leading" id="PRE-mi-ucE"/>
+                                    <constraint firstItem="oQt-aa-sXF" firstAttribute="leading" secondItem="ZMA-Kc-8E3" secondAttribute="trailing" constant="10" id="RM7-0R-yGQ"/>
+                                    <constraint firstItem="ZMA-Kc-8E3" firstAttribute="top" secondItem="AZt-CX-eQC" secondAttribute="top" constant="59" id="jDB-tq-kuA"/>
+                                    <constraint firstAttribute="height" constant="150" id="qRO-3O-mME"/>
+                                    <constraint firstAttribute="trailing" secondItem="oQt-aa-sXF" secondAttribute="trailing" constant="27" id="yHB-ZZ-A1q"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-ZX-PN9">
-                                <rect key="frame" x="0.0" y="92" width="414" height="607"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="607" id="iwk-b8-IFy"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="VI0-z5-cIr" customClass="MessageCell" customModule="Chatee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VI0-z5-cIr" id="tdO-0a-tJe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cgb-0s-w3w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="trailing" secondItem="cgb-0s-w3w" secondAttribute="trailing" id="0w5-02-8Fj"/>
-                            <constraint firstItem="AZt-CX-eQC" firstAttribute="leading" secondItem="cgb-0s-w3w" secondAttribute="leading" id="Q2P-Pl-qKJ"/>
-                            <constraint firstItem="AZt-CX-eQC" firstAttribute="top" secondItem="b3y-ZX-PN9" secondAttribute="bottom" constant="19" id="QrJ-g9-fah"/>
-                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="top" secondItem="cgb-0s-w3w" secondAttribute="top" constant="4" id="VKP-Rc-OZz"/>
-                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="leading" secondItem="cgb-0s-w3w" secondAttribute="leading" id="gwB-3n-jaZ"/>
-                            <constraint firstItem="AZt-CX-eQC" firstAttribute="trailing" secondItem="cgb-0s-w3w" secondAttribute="trailing" id="rjX-zd-y59"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="trailing" secondItem="cgb-0s-w3w" secondAttribute="trailing" id="0rU-lW-FkP"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="leading" secondItem="cgb-0s-w3w" secondAttribute="leading" id="0vn-z1-oeA"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="leading" secondItem="cgb-0s-w3w" secondAttribute="leading" id="42g-9Z-um6"/>
+                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="top" secondItem="cgb-0s-w3w" secondAttribute="top" constant="4" id="6xi-c5-xG9"/>
+                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="trailing" secondItem="cgb-0s-w3w" secondAttribute="trailing" id="7Pi-tp-y6p"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="top" secondItem="b3y-ZX-PN9" secondAttribute="bottom" constant="8" symbolic="YES" id="Ly4-9W-WhO"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="top" secondItem="b3y-ZX-PN9" secondAttribute="bottom" constant="8" symbolic="YES" id="MKT-Zs-5EC"/>
+                            <constraint firstItem="b3y-ZX-PN9" firstAttribute="leading" secondItem="cgb-0s-w3w" secondAttribute="leading" id="Siz-cT-d2O"/>
+                            <constraint firstItem="AZt-CX-eQC" firstAttribute="trailing" secondItem="cgb-0s-w3w" secondAttribute="trailing" id="goN-wG-AvM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wEF-aL-Apd"/>
                     <connections>
+                        <outlet property="heightConstraint" destination="qRO-3O-mME" id="7zN-gm-i4q"/>
                         <outlet property="messageField" destination="ZMA-Kc-8E3" id="HTM-Ks-UQC"/>
                         <outlet property="tableView" destination="b3y-ZX-PN9" id="rRI-UR-hmW"/>
                     </connections>

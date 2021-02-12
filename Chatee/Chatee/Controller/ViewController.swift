@@ -12,10 +12,6 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let dbRef: DatabaseReference = Database.database().reference()
-    dbRef.setValue("Hello there")
-    
-    // Do any additional setup after loading the view.
   }
 
 
